@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>카네스블랙 카페</title>
+    <title>성훈</title>
 </head>
 <body>
 
