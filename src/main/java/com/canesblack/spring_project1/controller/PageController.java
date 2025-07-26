@@ -12,7 +12,20 @@ public class PageController {
     // / -> localhost:8080
     // 페이지를 조회 및 이동할때 @GetMapping()을 써서 이동합니다.
     @GetMapping("/")
-    public String returnHome() {
+    public String home() {
         return "index";
     }
+
+    // / -> localhost:8080/register
+    @GetMapping("/register")
+    public String registerPage() {
+        return "register/index";
+    }
+
+    // / -> localhost:8080/loginPage
+    @GetMapping("/loginPage")
+    public String loginPage() {
+        return "login/index";
+    }
+
 }
