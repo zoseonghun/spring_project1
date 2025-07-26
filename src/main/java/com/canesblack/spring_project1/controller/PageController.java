@@ -1,0 +1,18 @@
+package com.canesblack.spring_project1.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
+@Controller
+// @Component 스프링빈으로 등록하기위한 라벨링 작업
+public class PageController {
+
+    // / -> localhost:8080
+    // 페이지를 조회 및 이동할때 @GetMapping()을 써서 이동합니다.
+    @GetMapping("/")
+    public String returnHome() {
+        return "index";
+    }
+}
