@@ -17,6 +17,8 @@
             <h2>로그인</h2>
             <%-- localhost:8080/login --%>
             <form action="${pageContext.request.contextPath}/login" method="post">
+                <%-- CSRF 토큰 추가 --%>
+                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <div class="input-group">
                     <label for="username">아이디</label>
                     <input type="text" id="username" name="username" required>

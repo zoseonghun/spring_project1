@@ -43,11 +43,11 @@ public class SecurityConfig {
                         .permitAll()
                         .requestMatchers(HttpMethod.POST,"/login","/register").permitAll()
                         .requestMatchers("/resources/**","/WEB-INF/**").permitAll()
-                        .requestMatchers("/noticerAdd","notiiceModifyPage").hasAnyAuthority("ADMIN","MANAGER")
+                        .requestMatchers("/noticerAdd","/noticeModifyPage").hasAnyAuthority("ADMIN","MANAGER")
                         .requestMatchers(HttpMethod.POST, "/menu/add").hasAnyAuthority("ADMIN","MANAGER")
                         .requestMatchers(HttpMethod.POST, "/menu/update").hasAnyAuthority("ADMIN","MANAGER")
                         .requestMatchers(HttpMethod.POST, "/menu/delete").hasAnyAuthority("ADMIN","MANAGER")
-                        .anyRequest().authenticated()
+                        .anyRequest().authenticated()   // // 로그인을 해야지만 접근이 가능하게끔 그렇기 때문에 로그인페이지로 자동 이동됩니다
                 )
 
 
@@ -65,10 +65,10 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/")  // 로그아웃 성공후 이 url로 리다이렉팅
                 .invalidateHttpSession(true) // 세션무효화
                 .deleteCookies("JSESSIONID") // 쿠키 삭제
-                .permitAll()
+                .permitAll() // 위 기능을 수행하려면 이 메서드 실행
                 );
 
-        return http.build();
+        return http.build();    // 최종 http에 적용시킬때 사용하는 메서드
     }
 
     @Bean
@@ -86,7 +86,9 @@ public class SecurityConfig {
                 if(isManager) {
                     session.setAttribute("MANAGER", true);
                 }
+                // 세션에다가 로그인한 아이디를 저장한다.
                 session.setAttribute("username", authentication.getName());
+                // 세션에다가 로그인 여부를 저장
                 session.setAttribute("isAuthenticatied", true);
                 // request.getContextPath() => localhost:8080
                 response.sendRedirect(request.getContextPath() + "/");

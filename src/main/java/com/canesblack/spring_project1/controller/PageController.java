@@ -23,16 +23,15 @@ public class PageController {
     // / -> localhost:8080/register
     @GetMapping("/registerPage")
     public String registerPage(HttpServletRequest request, Model model) {
-
         CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
         model.addAttribute("_csrf", csrfToken);
         return "register/index";
     }
 
-    // / -> localhost:8080/loginPage
     @GetMapping("/loginPage")
-    public String loginPage() {
+    public String loginPage(HttpServletRequest request, Model model) {
+        CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+        model.addAttribute("_csrf", csrfToken);
         return "login/index";
     }
-
 }

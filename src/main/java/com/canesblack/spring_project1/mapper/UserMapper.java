@@ -16,7 +16,7 @@ public interface UserMapper {
     // void -> 우리가 데이터베이스에서 백엔드영역으로 데이터를 가져오는게 없기 때문에 void로 가져오는게 없다고 작성
     void insert(User user);
     // CRUD의 READ에 해당하는 기능중하나
-    @Select("SELECT username,password,wriiter,role FROM backend_spring_project.user WHERE username=#{username}")
+    @Select("SELECT username,password,writer,role FROM backend_spring_project.user WHERE username=#{username}")
     User findByUsername(String username);
 
     @Select("SELECT writer FROM backend_spring_project.user WHERE username=#{username}")
