@@ -16,7 +16,7 @@ public class UserService {
         userMapper.insert(user);
     }
 
-    public String findWrite(String username) {
+    public String findWriter(String username) {
         return userMapper.findWriter(username);
     }
 

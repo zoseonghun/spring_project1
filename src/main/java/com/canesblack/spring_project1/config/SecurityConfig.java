@@ -43,7 +43,7 @@ public class SecurityConfig {
                         .permitAll()
                         .requestMatchers(HttpMethod.POST,"/login","/register").permitAll()
                         .requestMatchers("/resources/**","/WEB-INF/**").permitAll()
-                        .requestMatchers("/noticerAdd","/noticeModifyPage").hasAnyAuthority("ADMIN","MANAGER")
+                        .requestMatchers("/noticeAddPage","/noticeModifyPage").hasAnyAuthority("ADMIN","MANAGER")
                         .requestMatchers(HttpMethod.POST, "/menu/add").hasAnyAuthority("ADMIN","MANAGER")
                         .requestMatchers(HttpMethod.POST, "/menu/update").hasAnyAuthority("ADMIN","MANAGER")
                         .requestMatchers(HttpMethod.POST, "/menu/delete").hasAnyAuthority("ADMIN","MANAGER")
