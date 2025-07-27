@@ -11,8 +11,8 @@ import org.apache.ibatis.annotations.Select;
 public interface UserMapper {
 
     // CRUD의 CREATE에 해당하는 기능중하나
-    @Insert("INSERT INTO backend_spring_project.user(username,password,writer,role)" +
-            " VALUES (#{username}), #{password}, #{writer}, #{role}")
+    @Insert("INSERT INTO backend_spring_project.user(username, password, writer, role) " +
+            "VALUES (#{username}, #{password}, #{writer}, #{role})")
     // void -> 우리가 데이터베이스에서 백엔드영역으로 데이터를 가져오는게 없기 때문에 void로 가져오는게 없다고 작성
     void insert(User user);
     // CRUD의 READ에 해당하는 기능중하나

@@ -1,6 +1,10 @@
 package com.canesblack.spring_project1.controller;
 
+import com.canesblack.spring_project1.entity.User;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,8 +21,11 @@ public class PageController {
     }
 
     // / -> localhost:8080/register
-    @GetMapping("/register")
-    public String registerPage() {
+    @GetMapping("/registerPage")
+    public String registerPage(HttpServletRequest request, Model model) {
+
+        CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+        model.addAttribute("_csrf", csrfToken);
         return "register/index";
     }
 
