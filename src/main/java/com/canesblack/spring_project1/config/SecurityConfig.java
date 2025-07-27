@@ -89,7 +89,7 @@ public class SecurityConfig {
                 // 세션에다가 로그인한 아이디를 저장한다.
                 session.setAttribute("username", authentication.getName());
                 // 세션에다가 로그인 여부를 저장
-                session.setAttribute("isAuthenticatied", true);
+                session.setAttribute("isAuthenticated", true);
                 // request.getContextPath() => localhost:8080
                 response.sendRedirect(request.getContextPath() + "/");
                 super.onAuthenticationSuccess(request, response, authentication);
