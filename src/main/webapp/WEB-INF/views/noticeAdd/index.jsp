@@ -21,7 +21,7 @@
                 <h2 id="menuAdminH2">공지사항 작성</h2>
                 <br>
                 <label for="memID">회원아이디</label>
-                <input type="text" id="memID" name="memID" placeholder="회원아이디" maxlength="20" value="${username}" disabled="disabled">
+                <input type="text" id="memID" name="memID" placeholder="회원아이디" maxlength="20" value="${username}" disabled>
                 <br>
                 <label for="title">제목</label>
                 <input type="text" id="title" name="title" placeholder="제목" maxlength="10">
@@ -29,9 +29,11 @@
                 <label for="title">내용</label>
                 <input type="text" id="content" name="content" placeholder="내용" maxlength="30">
                 <br>
-                <input type="hidden" id="writer" name="writer">
+                <label for="title">작성자</label>
+                <input type="text" id="writer" name="writer" placeholder="작성자" maxlength="10" value="${writer}" disabled>
+                <br>
+
                 <input type="hidden" id="indate" name="indate">
-                <input type="hidden" id="count" name="count">
                 <button type="button" id="buttonSubmit">확인</button>
             </div>
         </div>
