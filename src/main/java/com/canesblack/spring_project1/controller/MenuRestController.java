@@ -31,6 +31,7 @@ public class MenuRestController {
     // 메뉴(한개의 게시판) 생성
     @PostMapping("/menu/add")
     public ResponseEntity<String> addMenu(@RequestBody Menu menu) {
+
         // 작성된 시점의 날짜를 자동 설정
         if (menu.getIndate() == null || menu.getIndate().isEmpty()) {
             menu.setIndate(LocalDate.now().toString());
