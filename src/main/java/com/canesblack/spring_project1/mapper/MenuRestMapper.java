@@ -12,12 +12,12 @@ public interface MenuRestMapper {
 
 
     // 첫번째 게시글 -> idx:1 두번째 게시글 -> idx:2 가장최신글이 가장먼저 공지사항 페이지에 보이게 정렬
-    @Select("SELECT idx,memID,title,content,indate,count FROM backend_spring_project.menu ORDER BY idx DESC ")
+    @Select("SELECT idx,memID,title,content,writer,indate,count FROM backend_spring_project.menu ORDER BY idx DESC ")
     public List<Menu>getLists();
 
     @Insert("INSERT INTO backend_spring_project.menu(memID,title,content,writer,indate) VALUES (#{memID}, #{title}, #{content}, #{writer}, #{indate})")
     public void boardInsert(Menu menu);
-    @Select("SELECT idx,memID,title,content,indate,count FROM backend_spring_project.menu WHERE idx=#{idx}")
+    @Select("SELECT idx,memID,title,content,writer,indate,count FROM backend_spring_project.menu WHERE idx=#{idx}")
     public Menu boardContent(int idx);
 
     @Delete("DELETE FROM backend_spring_project.menu WHERE idx=#{idx}")

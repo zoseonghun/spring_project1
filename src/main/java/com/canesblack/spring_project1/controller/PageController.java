@@ -1,6 +1,8 @@
 package com.canesblack.spring_project1.controller;
 
+import com.canesblack.spring_project1.entity.Menu;
 import com.canesblack.spring_project1.entity.User;
+import com.canesblack.spring_project1.service.MenuRestService;
 import com.canesblack.spring_project1.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 // @Component 스프링빈으로 등록하기위한 라벨링 작업
 public class PageController {
+
+
+    @Autowired
+    private MenuRestService menuRestService;
 
     @Autowired
     private UserService userService;
@@ -46,5 +53,12 @@ public class PageController {
         String writer = userService.findWriter(authentication.getName());
         model.addAttribute("writer", writer);
         return "noticeAdd/index";
+    }
+
+    @GetMapping("/noticeCheckPage")
+    public String showNoticeCheckPage(@RequestParam("idx") int idx, Model model) {
+        Menu menu = menuRestService.boardContent(idx);
+        model.addAttribute("menu", menu);
+        return "noticeCheck/index";
     }
 }
