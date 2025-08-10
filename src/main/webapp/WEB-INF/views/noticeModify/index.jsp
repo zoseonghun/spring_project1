@@ -5,12 +5,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>공지사항조회</title>
+    <title>공지사항 수정 페이지</title>
     <meta name="_csrf" content="${_csrf.token}">
     <meta name="_csrf_header" content="${_csrf.headerName}">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/noticeCheck/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/noticeModify/style.css">
 </head>
 <body>
+
 
 <%@ include file="../common/header.jsp"%>
 
@@ -25,10 +26,10 @@
             <input type="text" id="memID" name="memID" placeholder="회원아이디" maxlength="20" value="${menu.memID}" readonly style= "background-color: #e0e0e0;">
 
             <label for="title">제목</label>
-            <input type="text" id="title" name="title" placeholder="제목" maxlength="10" value="${menu.title}" readonly style= "background-color: #e0e0e0;">
+            <input type="text" id="title" name="title" placeholder="제목" maxlength="10" value="${menu.title}">
 
             <label for="title">내용</label>
-            <input type="text" id="content" name="content" placeholder="내용" maxlength="30" value="${menu.content}" readonly style= "background-color: #e0e0e0;">
+            <input type="text" id="content" name="content" placeholder="내용" maxlength="30" value="${menu.content}">
 
             <label for="title">작성자</label>
             <input type="text" id="writer" name="writer" placeholder="작성자" maxlength="10" value="${menu.writer}" readonly style= "background-color: #e0e0e0;">
@@ -36,7 +37,6 @@
             <div id="buttonContainer">
                 <c:if test="${MANAGER == true}">
                     <button type="button" id="buttonUpdate">수정</button>
-                    <button type="button" id="buttonDelete">삭제</button>
                 </c:if>
             </div>
 
@@ -48,7 +48,8 @@
 <%@ include file="../common/footer.jsp"%>
 
 
-<script src="${pageContext.request.contextPath}/resources/js/noticeCheck/script.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/noticeModify/script.js"></script>
+
 
 </body>
 </html>
